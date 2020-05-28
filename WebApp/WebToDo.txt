@@ -1,0 +1,19 @@
+#############TODO#######################
+Weather:
+	-get data and display 
+	Chart(3 variables-temp,hum,press) - Chart.js
+Postition:
+	-get data and display 
+	Chart(3 var - roll,pitch,yaw) - Chart.js
+	extra: 3D online model - three.js
+Config:
+	IP
+	PORT
+	SAMPLE TIME
+	MAX SAMPLES
+	DECIMAL PLACES
+	-config send to server and save in .json
+Design:
+	-css framework
+
+
