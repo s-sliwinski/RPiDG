@@ -1,4 +1,4 @@
-Nazwa: RPI DATA GRABBER (RPi DG)
+﻿Nazwa: RPI DATA GRABBER (RPi DG)
 Widoki:
 	Menu
 	Data Table
@@ -25,6 +25,15 @@ Nazwy danych:
 Architektura: LED uruchamia skrypt php który uruchamia sudo exec skrypt py
 Reszta od razu wysyła zapytanie o dane z serwera z pliku .json
 Dane konfiguracyjne przechowywane w apce/kliencie/serwerze
+Trzy osobne skrypty(demony) pobierające dane do osobnych plików .json
 
 Kolory:
+Menu Background: #7386D5
+Background: #30323C
+Text:  #E3B2B2
+
+Komentarze:
+*
+kom
+*
 

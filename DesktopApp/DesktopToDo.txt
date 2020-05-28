@@ -1,0 +1,12 @@
+View-Model-View
+Timelines
+Menu
+
+Menu Background: #7386D5
+Background: #30323C
+Text:  #E3B2B2
+
+Komentarze:
+*
+kom
+*
