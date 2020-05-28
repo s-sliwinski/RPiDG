@@ -1,0 +1,30 @@
+Nazwa: RPI DATA GRABBER (RPi DG)
+Widoki:
+	Menu
+	Data Table
+	Weather Timeline
+	RPY Timeline
+	LED Panel
+	Joystick Position
+
+Nazwy danych: 
+	Temperature
+	Pressure
+	Humidity
+	Roll
+	Pitch
+	Yaw
+	Position   
+	Configuration:
+		IP
+		PORT
+		SAMPLE TIME
+		MAX SAMPLES
+		DECIMAL PLACES
+
+Architektura: LED uruchamia skrypt php który uruchamia sudo exec skrypt py
+Reszta od razu wysyła zapytanie o dane z serwera z pliku .json
+Dane konfiguracyjne przechowywane w apce/kliencie/serwerze
+
+Kolory:
+
