@@ -6,6 +6,7 @@ Widoki:
 	RPY Timeline
 	LED Panel
 	Joystick Position
+	Configuration
 
 Nazwy danych: 
 	Temperature
