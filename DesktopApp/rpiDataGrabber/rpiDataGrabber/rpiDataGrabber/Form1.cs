@@ -53,6 +53,13 @@ namespace rpiDataGrabber
             panel1.Controls.Add(new UserControl1());
         }
 
-        
+        private void button4_Click(object sender, EventArgs e)
+        {
+            foreach (Control ctrl in panel1.Controls)
+            {
+                ctrl.Dispose();
+            }
+            panel1.Controls.Add(new rpyTimeline());
+        }
     }
 }

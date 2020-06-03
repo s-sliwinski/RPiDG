@@ -74,6 +74,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="rpyTimeline.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="rpyTimeline.Designer.cs">
+      <DependentUpon>rpyTimeline.cs</DependentUpon>
+    </Compile>
     <Compile Include="ServerData.cs" />
     <Compile Include="UserControl1.cs" />
     <Compile Include="UserControl1.Designer.cs">
@@ -103,6 +109,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="rpyTimeline.resx">
+      <DependentUpon>rpyTimeline.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControl1.resx">
       <DependentUpon>UserControl1.cs</DependentUpon>
     </EmbeddedResource>
