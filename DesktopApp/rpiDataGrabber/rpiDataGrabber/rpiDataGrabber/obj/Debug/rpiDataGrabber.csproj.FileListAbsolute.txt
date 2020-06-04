@@ -42,3 +42,5 @@ C:\Users\Klient\Documents\GitHub\RPiDG\DesktopApp\rpiDataGrabber\rpiDataGrabber\
 C:\Users\Klient\Documents\GitHub\RPiDG\DesktopApp\rpiDataGrabber\rpiDataGrabber\rpiDataGrabber\obj\Debug\rpiDataGrabber.csproj.CopyComplete
 C:\Users\Klient\Documents\GitHub\RPiDG\DesktopApp\rpiDataGrabber\rpiDataGrabber\rpiDataGrabber\obj\Debug\rpiDataGrabber.exe
 C:\Users\Klient\Documents\GitHub\RPiDG\DesktopApp\rpiDataGrabber\rpiDataGrabber\rpiDataGrabber\obj\Debug\rpiDataGrabber.pdb
+C:\Users\Klient\Documents\GitHub\RPiDG\DesktopApp\rpiDataGrabber\rpiDataGrabber\rpiDataGrabber\obj\Debug\rpiDataGrabber.dataTable.resources
+C:\Users\Klient\Documents\GitHub\RPiDG\DesktopApp\rpiDataGrabber\rpiDataGrabber\rpiDataGrabber\obj\Debug\rpiDataGrabber.rpyTimeline.resources
