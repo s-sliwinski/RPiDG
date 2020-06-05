@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="50dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/measurementBtn"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="400dp"
+            android:layout_height="60dp"
+            android:gravity="left"
+            android:onClick="btns_onClick"
+            android:text="Measurements" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.5" />
+
+        <Button
+            android:id="@+id/chartsBtn"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="400dp"
+            android:layout_height="60dp"
+            android:gravity="left"
+            android:onClick="btns_onClick"
+            android:text="Charts" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.5" />
+
+        <Button
+            android:id="@+id/angleMeasurementBtn"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="400dp"
+            android:layout_height="60dp"
+            android:gravity="left"
+            android:onClick="btns_onClick"
+            android:text="Angle Measurements" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.5" />
+
+        <Button
+            android:id="@+id/joystickBtn"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="400dp"
+            android:layout_height="60dp"
+            android:gravity="left"
+            android:onClick="btns_onClick"
+            android:text="Joystick" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.5" />
+
+        <Button
+            android:id="@+id/ledMatrixBtn"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="400dp"
+            android:layout_height="60dp"
+            android:gravity="left"
+            android:onClick="btns_onClick"
+            android:text="LED matrix" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/settingsBtn"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:onClick="btns_onClick"
+            android:text="settings" />
+
+        <Button
+            android:id="@+id/authorsBtn"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:onClick="btns_onClick"
+            android:text="authors" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
