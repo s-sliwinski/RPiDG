@@ -15,6 +15,9 @@ Nazwy danych:
 	Roll
 	Pitch
 	Yaw
+	X
+	Y
+	Middle
 	Position   
 	Configuration:
 		IP

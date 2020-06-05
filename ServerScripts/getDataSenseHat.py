@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 from sense_emu import SenseHat
 import sys
 import getopt
@@ -10,6 +10,9 @@ import signal
 temperature = 0
 humidity = 0
 pressure = 0
+x = 0
+y = 0
+mid = 0
 # data point
 class DataPoint:
 	def __init__(self, data):
@@ -26,13 +29,18 @@ try:
 		pitch = o["pitch"]
 		roll = o["roll"]
 		yaw = o["yaw"]
-		
-		
+
+		# get json string from joystick
+		for event in sense.stick.get_events():
+			if event.action in ('pressed', 'held'): 
+				x += {'left': -1, 'right': 1}.get(event.direction,0)
+				y += {'up': +1, 'down': -1}.get(event.direction, 0)
+				mid += {'middle': +1}.get(event.direction, 0)
 		
 		
 		# get json string
 		#jsonStr = json.dumps(dp.__dict__)
-		jsonStr = json.dumps({"temperature":float(temperature),"pressure":float(pressure),"humidity":float(humidity),"roll":float(roll),"pitch":float(pitch),"yaw":float(yaw)})
+		jsonStr = json.dumps({"temperature":float(temperature),"pressure":float(pressure),"humidity":float(humidity),"roll":float(roll),"pitch":float(pitch),"yaw":float(yaw),"x":int(x),"y":int(y),"mid":int(mid)})
 		#save to file
 		try:
 			datafile = open("chartdata.json","w")

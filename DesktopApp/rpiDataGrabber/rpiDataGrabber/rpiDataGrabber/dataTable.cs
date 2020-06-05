@@ -70,74 +70,113 @@ namespace rpiDataGrabber
                 RequestTimer = null;
             }
         }
-        //change unit
+        //change unit to basic
         private void button3_Click(object sender, EventArgs e)
+        {
+            if (unitFlag == "otherUnits")
+            {
+                unitFlag = "basicUnits";
+                label10.Text = "[°C]";
+                label10.Refresh();
+                label11.Text = "[hPa]";
+                label11.Refresh();
+                label12.Text = "[%rH]";
+                label12.Refresh();
+                label13.Text = "[DRG]";
+                label13.Refresh();
+                label14.Text = "[DGR]";
+                label14.Refresh();
+                label15.Text = "[DGR]";
+                label15.Refresh();
+            }
+        }
+        //change unit to other
+        private void button4_Click(object sender, EventArgs e)
         {
             if (unitFlag == "basicUnits")
             {
                 unitFlag = "otherUnits";
                 label10.Text = "[°F]";
+                label10.Refresh();
                 label11.Text = "[mmHg]";
+                label11.Refresh();
                 label12.Text = "[0-1]";
+                label12.Refresh();
                 label13.Text = "[RAD]";
+                label13.Refresh();
                 label14.Text = "[RAD]";
+                label14.Refresh();
                 label15.Text = "[RAD]";
-            }
-            if (unitFlag == "otherUnits")
-            {
-                unitFlag = "basicUnits";
-                label10.Text = "[°C]";
-                label11.Text = "[hPa]";
-                label12.Text = "[%rH]";
-                label13.Text = "[DRG]";
-                label14.Text = "[DGR]";
-                label15.Text = "[DGR]";
+                label15.Refresh();
             }
         }
         #endregion
 
         #region Functions
-        private async void UpdateTableWithServerResponse()
-        {
 
-            string responseText = await Server.GETwithClient();
-            ServerData resposneJson = JsonConvert.DeserializeObject<ServerData>(responseText);
-            if (unitFlag == "basicUnits")
+        private void UpdateTable(string flag, ServerData resposneJson)
+        {
+            if (flag == "basicUnits")
             {
-                textBox1.Text = resposneJson.temperature.ToString();
-                textBox2.Text = resposneJson.pressure.ToString();
-                textBox3.Text = resposneJson.humidity.ToString();
-                textBox4.Text = resposneJson.roll.ToString();
-                textBox5.Text = resposneJson.pitch.ToString();
-                textBox6.Text = resposneJson.yaw.ToString();
-                textBox7.Text = resposneJson.x.ToString();
-                textBox8.Text = resposneJson.y.ToString();
-                textBox9.Text = resposneJson.mid.ToString();
+                label16.Text = resposneJson.temperature.ToString();
+                label16.Refresh();
+                label17.Text = resposneJson.pressure.ToString();
+                label17.Refresh();
+                label18.Text = resposneJson.humidity.ToString();
+                label18.Refresh();
+                label19.Text = resposneJson.roll.ToString();
+                label19.Refresh();
+                label20.Text = resposneJson.pitch.ToString();
+                label20.Refresh();
+                label21.Text = resposneJson.yaw.ToString();
+                label21.Refresh();
+                label22.Text = resposneJson.x.ToString();
+                label22.Refresh();
+                label23.Text = resposneJson.y.ToString();
+                label23.Refresh();
+                label24.Text = resposneJson.mid.ToString();
+                label24.Refresh();
             }
-            if (unitFlag == "otherUnits")
+            if (flag == "otherUnits")
             {
                 farenheit = resposneJson.temperature * 1.8 + 32;
-                textBox1.Text = farenheit.ToString();
+                label16.Text = farenheit.ToString();
+                label16.Refresh();
 
                 mmhg = resposneJson.pressure * 0.750062;
-                textBox2.Text = mmhg.ToString();
+                label17.Text = mmhg.ToString();
+                label17.Refresh();
 
                 humi01 = resposneJson.humidity / 100;
-                textBox3.Text = humi01.ToString();
+                label18.Text = humi01.ToString();
+                label18.Refresh();
 
                 rRad = resposneJson.roll * Math.PI / 180;
-                textBox4.Text = rRad.ToString();
+                label19.Text = rRad.ToString();
+                label19.Refresh();
 
                 pRad = resposneJson.pitch * Math.PI / 180;
-                textBox5.Text = pRad.ToString();
+                label20.Text = pRad.ToString();
+                label20.Refresh();
 
                 yRad = resposneJson.yaw * Math.PI / 180;
-                textBox6.Text = yRad.ToString();
+                label21.Text = yRad.ToString();
+                label21.Refresh();
 
-                textBox7.Text = resposneJson.x.ToString();
-                textBox8.Text = resposneJson.y.ToString();
-                textBox9.Text = resposneJson.mid.ToString();
+                label22.Text = resposneJson.x.ToString();
+                label22.Refresh();
+                label23.Text = resposneJson.y.ToString();
+                label23.Refresh();
+                label24.Text = resposneJson.mid.ToString();
+                label24.Refresh();
             }
+        }
+
+        private async void UpdateTableWithServerResponse()
+        {
+            string responseText = await Server.GETwithClient();
+            ServerData resposneJson = JsonConvert.DeserializeObject<ServerData>(responseText);
+            UpdateTable(unitFlag, resposneJson);
 
         }
 
@@ -161,9 +200,7 @@ namespace rpiDataGrabber
             PropertyChangedEventHandler handler = PropertyChanged;
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
-
-
-
+  
         #endregion
     }
 }
