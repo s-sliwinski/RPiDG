@@ -70,6 +70,15 @@ namespace rpiDataGrabber
             }
             panel1.Controls.Add(new dataTable());
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            foreach (Control ctrl in panel1.Controls)
+            {
+                ctrl.Dispose();
+            }
+            panel1.Controls.Add(new joystick());
+        }
     }
 }
 

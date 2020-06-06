@@ -40,6 +40,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -74,11 +75,13 @@
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.button2, 0, 6);
             this.tableLayoutPanel2.Controls.Add(this.button1, 0, 4);
-            this.tableLayoutPanel2.Controls.Add(this.button3, 0, 9);
-            this.tableLayoutPanel2.Controls.Add(this.button5, 0, 8);
+            this.tableLayoutPanel2.Controls.Add(this.button3, 0, 10);
+            this.tableLayoutPanel2.Controls.Add(this.button5, 0, 9);
+            this.tableLayoutPanel2.Controls.Add(this.button6, 0, 8);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 11;
+            this.tableLayoutPanel2.RowCount = 12;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -186,7 +189,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(26, 319);
+            this.button3.Location = new System.Drawing.Point(26, 365);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(136, 40);
             this.button3.TabIndex = 2;
@@ -201,7 +204,7 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(26, 273);
+            this.button5.Location = new System.Drawing.Point(26, 319);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(136, 40);
             this.button5.TabIndex = 6;
@@ -218,6 +221,21 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(609, 448);
             this.panel1.TabIndex = 1;
+            // 
+            // button6
+            // 
+            this.button6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button6.BackColor = System.Drawing.Color.Transparent;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button6.ForeColor = System.Drawing.Color.White;
+            this.button6.Location = new System.Drawing.Point(26, 273);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(136, 40);
+            this.button6.TabIndex = 7;
+            this.button6.Text = "Joystick Position";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // Form1
             // 
@@ -249,6 +267,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
     }
 }
 

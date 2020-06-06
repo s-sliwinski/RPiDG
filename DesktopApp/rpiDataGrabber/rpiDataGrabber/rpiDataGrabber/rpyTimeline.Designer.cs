@@ -70,7 +70,7 @@
             this.button2.Cursor = System.Windows.Forms.Cursors.Default;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(178)))), ((int)(((byte)(178)))));
             this.button2.Location = new System.Drawing.Point(3, 3);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
             this.button2.Name = "button2";
@@ -87,7 +87,7 @@
             this.button3.Cursor = System.Windows.Forms.Cursors.Default;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button3.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(178)))), ((int)(((byte)(178)))));
             this.button3.Location = new System.Drawing.Point(122, 3);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
             this.button3.Name = "button3";
@@ -104,7 +104,7 @@
             this.button4.Cursor = System.Windows.Forms.Cursors.Default;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button4.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(178)))), ((int)(((byte)(178)))));
             this.button4.Location = new System.Drawing.Point(241, 3);
             this.button4.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
             this.button4.Name = "button4";

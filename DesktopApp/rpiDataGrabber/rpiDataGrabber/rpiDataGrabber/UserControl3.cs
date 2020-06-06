@@ -61,9 +61,7 @@ namespace rpiDataGrabber
 
             plotView1.Model=DataPlotModel;
 
-
             Server = new IoTServer(ip, port);
-
         }
 
         //temp
@@ -198,58 +196,6 @@ namespace rpiDataGrabber
         private void RequestTimerElapsed(object sender, ElapsedEventArgs e)
         {
             UpdatePlotWithServerResponse();
-        }
-
-
-        private void StartTimer()
-        {
-            if (RequestTimer == null)
-            {
-                RequestTimer = new Timer(deserialized.sampleTime);
-                RequestTimer.Elapsed += new ElapsedEventHandler(RequestTimerElapsed);
-                RequestTimer.Enabled = true;
-
-                if (DataPlotModel == null)
-                {
-                    PlotModel DataPlotModel = new PlotModel { Title = "Weather Data" };
-                    DataPlotModel.Axes.Add(new LinearAxis()
-                    {
-                        Position = AxisPosition.Bottom,
-                        Minimum = 0,
-                        Maximum = deserialized.maxSamples,
-                        Key = "Horizontal",
-                        Unit = "sec",
-                        Title = "Time"
-                    });
-
-
-                    DataPlotModel.Axes.Add(new LinearAxis()
-                    {
-                        Position = AxisPosition.Left,
-                        Key = "Vertical",
-                        Unit = "",
-                        Title = ""
-                    });
-
-                    //DataPlotModel.Series.Add(new LineSeries() { Title = "", Color = OxyColor.Parse("#FFFF0000") });
-
-                    plotView1.Model = DataPlotModel;
-                    DataPlotModel.ResetAllAxes();
-                }
-                else DataPlotModel.ResetAllAxes();
-            }
-        }
-
-        /**
-         * @brief RequestTimer stop procedure.
-         */
-        private void StopTimer()
-        {
-            if (RequestTimer != null)
-            {
-                RequestTimer.Enabled = false;
-                RequestTimer = null;
-            }
         }
 
         #region PropertyChanged

@@ -127,7 +127,7 @@
             this.button4.Cursor = System.Windows.Forms.Cursors.Default;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button4.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(178)))), ((int)(((byte)(178)))));
             this.button4.Location = new System.Drawing.Point(496, 405);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(110, 40);
@@ -1222,7 +1222,7 @@
             this.picker.Cursor = System.Windows.Forms.Cursors.Default;
             this.picker.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.picker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.picker.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.picker.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(178)))), ((int)(((byte)(178)))));
             this.picker.Location = new System.Drawing.Point(3, 3);
             this.picker.Name = "picker";
             this.picker.Size = new System.Drawing.Size(104, 40);
