@@ -3,6 +3,7 @@ var port;
 var stime;
 var maxsamples;
 var dplaces;
+const url = 'Access-Control-Allow-Origin: http://192.168.1.15/cgi-bin/config.py';
 
 function subFunction(){
         ip = document.getElementById("ip").value;
@@ -19,4 +20,26 @@ function sendToServer(){
     var jsonStr = JSON.stringify(jsonObj);
     console.log(jsonStr);
     console.log(jsonObj);
+
+
+    $.ajax({
+        url: url,
+        type: "POST",
+        dataType: "json",
+        data: jsonStr,
+        contentType: 'application/json;charset=UTF-8',
+        success: function (response){
+            alert(response.message);
+            alert(response.keys);
+        },
+        error: function (xhr,status,error){
+            alert(error.message);
+            alert(error.response);
+        }
+
+    });
+};
+
+window.onload = function (){
+    $('#submitbtn').click(subFunction)
 }

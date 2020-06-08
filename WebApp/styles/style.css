@@ -1,0 +1,13 @@
+body{
+    font-family: font-family: 'Rubik', sans-serif;
+    background: #30323C;
+    color: #E3B2B2;
+}
+.nav{
+    background: #7386D5;
+    color: #E3B2B2;
+}
+.nav-link{
+    color: #E3B2B2;
+    font-family: font-family: 'Rubik', sans-serif;
+}
