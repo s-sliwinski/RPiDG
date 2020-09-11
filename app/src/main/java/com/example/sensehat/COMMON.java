@@ -6,13 +6,13 @@ public final class COMMON {
 
     // configuration info: names and default values
     public final static String CONFIG_IP_ADDRESS = "ipAddress";
-    public final static String DEFAULT_IP_ADDRESS = "192.168.0.24";
+    public static String DEFAULT_IP_ADDRESS = "192.168.0.24";
 
     public final static String CONFIG_SAMPLE_TIME = "sampleTime";
-    public final static int DEFAULT_SAMPLE_TIME = 500;
+    public static int DEFAULT_SAMPLE_TIME = 500;
 
     public final static String CONFIG_MAX_SAMPLES = "maxSamples";
-    public final static int DEFAULT_MAX_SAMPLES = 10;
+    public static int DEFAULT_MAX_SAMPLES = 10;
 
     public final static String CONFIG_PORT_NUMBER = "portNumber";
     static int DEFAULT_PORT_NUMBER = 22;
