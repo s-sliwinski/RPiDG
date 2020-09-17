@@ -1,32 +1,33 @@
 package com.example.sensehat;
-import androidx.appcompat.app.AppCompatActivity;
+        import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.SystemClock;
-import android.util.Log;
-import android.view.View;
-import android.widget.TextView;
+        import android.app.AlertDialog;
+        import android.content.DialogInterface;
+        import android.os.Bundle;
+        import android.os.Handler;
+        import android.os.SystemClock;
+        import android.util.Log;
+        import android.view.View;
+        import android.widget.TextView;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-import com.jjoe64.graphview.GraphView;
-import com.jjoe64.graphview.series.DataPoint;
-import com.jjoe64.graphview.series.LineGraphSeries;
+        import com.android.volley.Request;
+        import com.android.volley.RequestQueue;
+        import com.android.volley.Response;
+        import com.android.volley.VolleyError;
+        import com.android.volley.toolbox.StringRequest;
+        import com.android.volley.toolbox.Volley;
+        import com.jjoe64.graphview.GraphView;
+        import com.jjoe64.graphview.series.DataPoint;
+        import com.jjoe64.graphview.series.LineGraphSeries;
+        import com.jjoe64.graphview.series.PointsGraphSeries;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+        import org.json.JSONException;
+        import org.json.JSONObject;
 
-import java.util.Timer;
-import java.util.TimerTask;
+        import java.util.Timer;
+        import java.util.TimerTask;
 
-import static java.lang.Double.isNaN;
+        import static java.lang.Double.isNaN;
 
 public class joystickActivity extends AppCompatActivity {
     private final int dataGraphMaxDataPointsNumber = 1000;
@@ -37,12 +38,12 @@ public class joystickActivity extends AppCompatActivity {
 
     private GraphView joystickGraph;
 
-    private LineGraphSeries<DataPoint> joystickDataSeries;
-
-    private final double joystickDataGraphMaxX = 2.0d;
-    private final double joystickDataGraphMinX =  -2.0d;
-    private final double joystickDataGraphMaxY =  2.0d;
-    private final double joystickDataGraphMinY = -2.0d;
+    // private LineGraphSeries<DataPoint> joystickDataSeries;
+    private  PointsGraphSeries<DataPoint> joystickDataSeries;
+    private final double joystickDataGraphMaxX = 4.0d;
+    private final double joystickDataGraphMinX =  -4.0d;
+    private final double joystickDataGraphMaxY =  4.0d;
+    private final double joystickDataGraphMinY = -4.0d;
 
     private AlertDialog.Builder configAlterDialog;
     /* END widgets */
@@ -57,7 +58,7 @@ public class joystickActivity extends AppCompatActivity {
     private TimerTask requestTimerTask;
     private final Handler handler = new Handler();
     /* END request timer */
-
+    int previousBtnData=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,8 +76,8 @@ public class joystickActivity extends AppCompatActivity {
         // https://github.com/jjoe64/GraphView/wiki
 
         joystickGraph = (GraphView)findViewById(R.id.joystickGraph);
-        joystickDataSeries = new LineGraphSeries<>(new DataPoint[]{});
-        joystickGraph.addSeries(joystickDataSeries);
+        // joystickDataSeries = new PointsGraphSeries<>(new DataPoint[]{});
+        // joystickGraph.addSeries(joystickDataSeries);
         joystickGraph.getViewport().setXAxisBoundsManual(true);
         joystickGraph.getViewport().setMinX(joystickDataGraphMinX);
         joystickGraph.getViewport().setMaxX(joystickDataGraphMaxX);
@@ -84,6 +85,8 @@ public class joystickActivity extends AppCompatActivity {
         joystickGraph.getViewport().setMinY(joystickDataGraphMinY);
         joystickGraph.getViewport().setMaxY(joystickDataGraphMaxY);
         joystickGraph.setTitle("Joystick");
+
+
         /* END initialize GraphView */
 
         /* BEGIN config alter dialog */
@@ -173,75 +176,75 @@ public class joystickActivity extends AppCompatActivity {
      * @param response IoT server JSON response as string
      * @retval new chart data
      */
-    private double getXDataFromResponse(String response) {
+    private int getXDataFromResponse(String response) {
         JSONObject jObject;
-        double x = Double.NaN;
+        int x_pos = 0;
 
         // Create generic JSON object form string
         try {
             jObject = new JSONObject(response);
         } catch (JSONException e) {
             e.printStackTrace();
-            return x;
+            return x_pos;
         }
 
         // Read chart data form JSON object
         try {
-            x = (double)jObject.get("x");
+            x_pos =(int) jObject.get("x");
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return x;
+        return x_pos;
     }
     /**
      * @brief Reading y value of joystick from JSON response.
      * @param response IoT server JSON response as string
      * @retval new chart data
      */
-    private double getYDataFromResponse(String response) {
+    private int getYDataFromResponse(String response) {
         JSONObject jObject;
-        double x = Double.NaN;
+        int y_pos = 0;
 
         // Create generic JSON object form string
         try {
             jObject = new JSONObject(response);
         } catch (JSONException e) {
             e.printStackTrace();
-            return x;
+            return y_pos;
         }
 
         // Read chart data form JSON object
         try {
-            x = (double)jObject.get("y");
+            y_pos = (int)jObject.get("y");
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return x;
+        return y_pos;
     }
     /**
      * @brief Reading button value of joystick from JSON response.
      * @param response IoT server JSON response as string
      * @retval new chart data
      */
-    private double getBtnDataFromResponse(String response) {
+    private int getBtnDataFromResponse(String response) {
         JSONObject jObject;
-        double x = Double.NaN;
+        int mid =0;
 
         // Create generic JSON object form string
         try {
             jObject = new JSONObject(response);
         } catch (JSONException e) {
             e.printStackTrace();
-            return x;
+            return mid;
         }
 
         // Read chart data form JSON object
         try {
-            x = (double)jObject.get("mid");
+            mid = (int)jObject.get("mid");
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return x;
+        return mid;
     }
     /**
      * @brief Starts new 'Timer' (if currently not exist) and schedules periodic task.
@@ -349,23 +352,34 @@ public class joystickActivity extends AppCompatActivity {
             long requestTimerCurrentTime = SystemClock.uptimeMillis(); // current time
             requestTimerTimeStamp += getValidTimeStampIncrease(requestTimerCurrentTime);
             // get raw data from JSON response
-            double XData = getXDataFromResponse(response);
+            int XData_int = getXDataFromResponse(response);
+            //double XData_double=(double)XData_int;
+
+            int YData_int = getYDataFromResponse(response);
+            //double YData_double=(double)YData_int;
+            double YData = getYDataFromResponse(response);
+            int btnData=getBtnDataFromResponse(response);
+
+            boolean shape_flag=true;
 
             // update chart
-            if (isNaN(XData)) {
-                errorHandling(COMMON.ERROR_NAN_DATA);
-            } else {
-                // update plot series
-                double timeStamp = requestTimerTimeStamp / 1000.0; // [sec]
+            joystickDataSeries = new PointsGraphSeries<>(new DataPoint[]{new DataPoint(XData_int, YData_int)});
+            joystickGraph.addSeries(joystickDataSeries);
 
-                boolean scrollGraph = (timeStamp > joystickDataGraphMaxX);
+            //change point shape
+            if(previousBtnData==btnData)
+            {
+                joystickDataSeries.setShape(PointsGraphSeries.Shape.POINT);
 
-                joystickDataSeries.appendData(new DataPoint(timeStamp,XData),scrollGraph,COMMON.DEFAULT_SAMPLE_TIME);
-
-                // refresh chart
-
-                joystickGraph.onDataChanged(true,true);
             }
+            else
+            {
+                joystickDataSeries.setShape(PointsGraphSeries.Shape.RECTANGLE);
+                previousBtnData=btnData;
+            }
+
+
+
 
             // remember previous time stamp
             requestTimerPreviousTime = requestTimerCurrentTime;
