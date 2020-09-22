@@ -22,4 +22,6 @@
         <item>Luigi</item>
 
     </string-array>
+    <string name="clicked_on_me">You clicked on me.</string>
+    <string name="click_on_me">Click on me</string>
 </resources>

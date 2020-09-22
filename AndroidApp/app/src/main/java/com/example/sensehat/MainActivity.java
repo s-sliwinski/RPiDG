@@ -30,7 +30,12 @@ import java.util.TimerTask;
 
 import static java.lang.Double.isNaN;
 public class MainActivity extends AppCompatActivity {
-
+    /* BEGIN config data */
+    private String ipAddress = COMMON.DEFAULT_IP_ADDRESS;
+    private int sampleTime = COMMON.DEFAULT_SAMPLE_TIME;
+    private int maxSamples = COMMON.DEFAULT_MAX_SAMPLES;
+    private int portNumber = COMMON.DEFAULT_PORT_NUMBER;
+    /* END config data */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             }
             case R.id.settingsBtn: {
-               openSettings();
+               openConfig();
                 break;
             }
             default: {
@@ -120,11 +125,15 @@ public class MainActivity extends AppCompatActivity {
     /**
      * @brief Called when the user taps the 'Settings' button.
      * */
-    private void openSettings() {
-        Intent openSettingsIntent = new Intent(this, settingsActivity.class);
-        Bundle settingsBundle = new Bundle();
-        openSettingsIntent.putExtras(settingsBundle);
-        startActivityForResult(openSettingsIntent, COMMON.REQUEST_CODE_CONFIG);
+    private void openConfig() {
+        Intent openConfigIntent = new Intent(this, configActivity.class);
+       Bundle configBundle = new Bundle();
+        //configBundle.putString(COMMON.CONFIG_IP_ADDRESS, ipAddress);
+       // configBundle.putInt(COMMON.CONFIG_SAMPLE_TIME, sampleTime);
+       // configBundle.putInt(COMMON.CONFIG_MAX_SAMPLES, maxSamples);
+       openConfigIntent.putExtras(configBundle);
+       startActivityForResult(openConfigIntent, COMMON.REQUEST_CODE_CONFIG);
+       startActivity(openConfigIntent);
     }
 
     /**
