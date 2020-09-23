@@ -39,21 +39,22 @@ public class configActivity extends AppCompatActivity {
 
 
         portNumberEditText=findViewById(R.id.portNumberEditTextConfig);
-        int portNumber=configBundle.getInt(COMMON.CONFIG_PORT_NUMBER,COMMON.DEFAULT_PORT_NUMBER);
-        portNumberEditText.setText(Integer.toString(portNumber));
+        String portNumber=configBundle.getString(COMMON.CONFIG_PORT_NUMBER,COMMON.DEFAULT_PORT_NUMBER);
+        portNumberEditText.setText(portNumber);
     }
 
     @Override
     public void onBackPressed() {
-       /*Intent intent = new Intent();
+       Intent intent = new Intent();
         intent.putExtra(COMMON.CONFIG_IP_ADDRESS, ipEditText.getText().toString());
         intent.putExtra(COMMON.CONFIG_SAMPLE_TIME, sampleTimeEditText.getText().toString());
         intent.putExtra(COMMON.CONFIG_MAX_SAMPLES, maxSamplesEditText.getText().toString());
-        setResult(RESULT_OK, intent);*/
+        intent.putExtra(COMMON.CONFIG_PORT_NUMBER, portNumberEditText.getText().toString());
+        setResult(RESULT_OK, intent);
         COMMON.DEFAULT_IP_ADDRESS=ipEditText.getText().toString();
         COMMON.DEFAULT_SAMPLE_TIME=Integer.parseInt(sampleTimeEditText.getText().toString());
         COMMON.DEFAULT_MAX_SAMPLES=Integer.parseInt(maxSamplesEditText.getText().toString());
-        COMMON.DEFAULT_PORT_NUMBER=Integer.parseInt(portNumberEditText.getText().toString());
+        COMMON.DEFAULT_PORT_NUMBER=portNumberEditText.getText().toString();
 
         finish();
     }

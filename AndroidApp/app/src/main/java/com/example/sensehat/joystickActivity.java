@@ -29,6 +29,13 @@ package com.example.sensehat;
 public class joystickActivity extends AppCompatActivity {
     private final int dataGraphMaxDataPointsNumber = 1000;
 
+    /* BEGIN config data */
+    private String ipAddress = COMMON.DEFAULT_IP_ADDRESS;
+    private int sampleTime = COMMON.DEFAULT_SAMPLE_TIME;
+    private int maxSamples = COMMON.DEFAULT_MAX_SAMPLES;
+    private String portNumber = COMMON.DEFAULT_PORT_NUMBER;
+    /* END config data */
+
     /* BEGIN widgets */
 
     private TextView textViewError;
@@ -141,9 +148,10 @@ public class joystickActivity extends AppCompatActivity {
      * @param ip IP address (string)
      * @retval GET request URL
      */
-    private String getURL(String ip) {
-        return ("http://" + ip + "/" + COMMON.FILE_NAME);
+    private String getURL(String ip,String portNumber,String fileName) {
+        return ("http://" + ip +":"+portNumber+ "/" + fileName);
     }
+
     /**
      * @brief Handles application errors. Logs an error and passes error code to GUI.
      * @param errorCode local error codes, see: COMMON
@@ -292,7 +300,7 @@ public class joystickActivity extends AppCompatActivity {
     {
         // Instantiate the RequestQueue with Volley
         // https://javadoc.io/doc/com.android.volley/volley/1.1.0-rc2/index.html
-        String url = getURL(COMMON.DEFAULT_IP_ADDRESS);
+        String url = getURL(ipAddress,portNumber,COMMON.FILE_NAME);
 
         // Request a string response from the provided URL
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,

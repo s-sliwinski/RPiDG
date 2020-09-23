@@ -37,7 +37,7 @@ public class angleMeasurementActivity extends AppCompatActivity {
     private String ipAddress = COMMON.DEFAULT_IP_ADDRESS;
     private int sampleTime = COMMON.DEFAULT_SAMPLE_TIME;
     private int maxSamples = COMMON.DEFAULT_MAX_SAMPLES;
-    private int portNumber = COMMON.DEFAULT_PORT_NUMBER;
+    private String portNumber = COMMON.DEFAULT_PORT_NUMBER;
     /* END config data */
 
     /* BEGIN widgets */
@@ -57,19 +57,19 @@ public class angleMeasurementActivity extends AppCompatActivity {
 
     private final double rollDataGraphMaxX = 10.0d;
     private final double rollDataGraphMinX =  0.0d;
-    private final double rollDataGraphMaxY =  40.0d;
-    private final double rollDataGraphMinY = 10.0d;
+    private final double rollDataGraphMaxY =  180.0d;
+    private final double rollDataGraphMinY = -180.0d;
 
 
     private final double pitchDataGraphMaxX = 10.0d;
     private final double pitchDataGraphMinX =  0.0d;
-    private final double pitchDataGraphMaxY =  1050.0d;
-    private final double pitchDataGraphMinY = 950.0d;
+    private final double pitchDataGraphMaxY =  180.0d;
+    private final double pitchDataGraphMinY = -180.0d;
 
     private final double yawDataGraphMaxX = 10.0d;
     private final double yawDataGraphMinX =  0.0d;
-    private final double yawDataGraphMaxY =  100.0d;
-    private final double yawDataGraphMinY = 0.0d;
+    private final double yawDataGraphMaxY =  180.0d;
+    private final double yawDataGraphMinY = -180.0d;
 
     private AlertDialog.Builder configAlterDialog;
     /* END widgets */
@@ -225,13 +225,12 @@ public class angleMeasurementActivity extends AppCompatActivity {
 
     /**
      * @brief Create JSON file URL from IoT server IP.
-     * @param ip IP address (string)
+     * @param ip IP address (string),portNumber number of port, fileName
      * @retval GET request URL
      */
-    private String getURL(String ip) {
-        return ("http://" + ip + "/" + COMMON.FILE_NAME);
+    private String getURL(String ip,String portNumber,String fileName) {
+        return ("http://" + ip +":"+portNumber+ "/" + fileName);
     }
-
     /**
      * @brief Handles application errors. Logs an error and passes error code to GUI.
      * @param errorCode local error codes, see: COMMON
@@ -395,7 +394,7 @@ public class angleMeasurementActivity extends AppCompatActivity {
     {
         // Instantiate the RequestQueue with Volley
         // https://javadoc.io/doc/com.android.volley/volley/1.1.0-rc2/index.html
-        String url = getURL(ipAddress);
+        String url = getURL(ipAddress,portNumber,COMMON.FILE_NAME);
 
         // Request a string response from the provided URL
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,

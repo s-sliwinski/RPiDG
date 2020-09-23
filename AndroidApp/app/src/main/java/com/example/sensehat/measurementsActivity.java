@@ -39,6 +39,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class measurementsActivity extends AppCompatActivity {
 
+    /* BEGIN config data */
+    private String ipAddress = COMMON.DEFAULT_IP_ADDRESS;
+    private int sampleTime = COMMON.DEFAULT_SAMPLE_TIME;
+    private int maxSamples = COMMON.DEFAULT_MAX_SAMPLES;
+    private String portNumber = COMMON.DEFAULT_PORT_NUMBER;
+    /* END config data */
+
     private TextView textViewError;
     int JSONSizeGloabal;
     int iGlobal;
@@ -87,8 +94,8 @@ public class measurementsActivity extends AppCompatActivity {
             }
         }
     }
-    private String getURL(String ip) {
-        return ("http://" + ip + "/" + COMMON.FILE_NAME);
+    private String getURL(String ip,String portNumber,String fileName) {
+        return ("http://" + ip +":"+portNumber+ "/" + fileName);
     }
     /**
      * @brief Handles application errors. Logs an error and passes error code to GUI.
@@ -259,7 +266,7 @@ public class measurementsActivity extends AppCompatActivity {
     {
         // Instantiate the RequestQueue with Volley
         // https://javadoc.io/doc/com.android.volley/volley/1.1.0-rc2/index.html
-        String url = getURL(COMMON.DEFAULT_IP_ADDRESS);
+        String url = getURL(ipAddress,portNumber,COMMON.FILE_NAME);
 
         // Request a string response from the provided URL
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,

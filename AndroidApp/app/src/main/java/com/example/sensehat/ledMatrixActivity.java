@@ -49,6 +49,14 @@ import java.util.Vector;
 
 
 public class ledMatrixActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener  {
+    /* BEGIN config data */
+    private String ipAddress = COMMON.DEFAULT_IP_ADDRESS;
+    private int sampleTime = COMMON.DEFAULT_SAMPLE_TIME;
+    private int maxSamples = COMMON.DEFAULT_MAX_SAMPLES;
+    private String portNumber = COMMON.DEFAULT_PORT_NUMBER;
+    /* END config data */
+
+
     SeekBar redSeekBar, greenSeekBar, blueSeekBar;
     View colorView;
     EditText urlText;
@@ -73,9 +81,9 @@ public class ledMatrixActivity extends AppCompatActivity implements AdapterView.
     boolean clear_flag;
 
     //begin request
-    String url = "http://192.168.0.11/led_display.php";
-    String url_mario = "http://192.168.0.11/mario.php";
-    String url_luigi = "http://192.168.0.11/luigi.php";
+    String url = COMMON.SERWER_LED_DISPLAY;
+    String url_mario = COMMON.FILE_MARIO;
+    String url_luigi = COMMON.SERWER_LUIGI;
     private RequestQueue queue;
     Map<String, String> paramsClear = new HashMap<String, String>();
 
@@ -163,7 +171,7 @@ public class ledMatrixActivity extends AppCompatActivity implements AdapterView.
         colorView = findViewById(R.id.colorView);
 
         urlText = findViewById(R.id.urlText);
-        urlText.setText(url);
+        urlText.setText(getURL(ipAddress,portNumber,url));
         //end widgets init
 
         //begin volley init
@@ -453,13 +461,21 @@ public class ledMatrixActivity extends AppCompatActivity implements AdapterView.
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+    /**
+     * @brief Create JSON file URL from IoT server IP.
+     * @param ip IP address (string),portNumber number of port, fileName
+     * @retval GET request URL
+     */
+    private String getURL(String ip,String portNumber,String fileName) {
+        return ("http://" + ip +":"+portNumber+ "/" + fileName);
+    }
 
     private void sendImageRequest(String fileName)
     {
         // Instantiate the RequestQueue with Volley
         // https://javadoc.io/doc/com.android.volley/volley/1.1.0-rc2/index.html
-        String url = "http://192.168.0.11/"+fileName;
-
+        //String url = "http://192.168.0.11/"+fileName;
+        String url=getURL(ipAddress,portNumber,fileName);
         // Request a string response from the provided URL
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {

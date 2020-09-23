@@ -36,7 +36,7 @@ public class chartsActivity extends AppCompatActivity {
     private String ipAddress = COMMON.DEFAULT_IP_ADDRESS;
     private int sampleTime = COMMON.DEFAULT_SAMPLE_TIME;
     private int maxSamples = COMMON.DEFAULT_MAX_SAMPLES;
-    private int portNumber = COMMON.DEFAULT_PORT_NUMBER;
+    private String portNumber = COMMON.DEFAULT_PORT_NUMBER;
     /* END config data */
 
     /* BEGIN widgets */
@@ -56,14 +56,14 @@ public class chartsActivity extends AppCompatActivity {
 
     private final double dataGraphMaxX = 10.0d;
     private final double dataGraphMinX =  0.0d;
-    private final double dataGraphMaxY =  40.0d;
-    private final double dataGraphMinY = 10.0d;
+    private final double dataGraphMaxY =  105.0d;
+    private final double dataGraphMinY = -30.0d;
 
 
     private final double pressGraphMaxX = 10.0d;
     private final double pressGraphMinX =  0.0d;
-    private final double pressGraphMaxY =  1050.0d;
-    private final double pressGraphMinY = 950.0d;
+    private final double pressGraphMaxY =  1260.0d;
+    private final double pressGraphMinY = 260.0d;
 
     private final double humGraphMaxX = 10.0d;
     private final double humGraphMinX =  0.0d;
@@ -229,8 +229,8 @@ public class chartsActivity extends AppCompatActivity {
      * @param ip IP address (string)
      * @retval GET request URL
      */
-    private String getURL(String ip) {
-        return ("http://" + ip + "/" + COMMON.FILE_NAME);
+    private String getURL(String ip,String portNumber,String fileName) {
+        return ("http://" + ip +":"+portNumber+ "/" + fileName);
     }
 
     /**
@@ -269,6 +269,7 @@ public class chartsActivity extends AppCompatActivity {
         configBundle.putInt(COMMON.CONFIG_MAX_SAMPLES, maxSamples);
         openConfigIntent.putExtras(configBundle);
         startActivityForResult(openConfigIntent, COMMON.REQUEST_CODE_CONFIG);
+        //startActivity(openConfigIntent);
     }
 
     /**
@@ -396,7 +397,7 @@ public class chartsActivity extends AppCompatActivity {
     {
         // Instantiate the RequestQueue with Volley
         // https://javadoc.io/doc/com.android.volley/volley/1.1.0-rc2/index.html
-        String url = getURL(ipAddress);
+        String url = getURL(ipAddress,portNumber,COMMON.FILE_NAME);
 
         // Request a string response from the provided URL
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,

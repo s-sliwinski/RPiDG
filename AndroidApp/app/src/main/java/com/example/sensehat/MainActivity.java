@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private String ipAddress = COMMON.DEFAULT_IP_ADDRESS;
     private int sampleTime = COMMON.DEFAULT_SAMPLE_TIME;
     private int maxSamples = COMMON.DEFAULT_MAX_SAMPLES;
-    private int portNumber = COMMON.DEFAULT_PORT_NUMBER;
+    private String portNumber = COMMON.DEFAULT_PORT_NUMBER;
     /* END config data */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,12 +128,12 @@ public class MainActivity extends AppCompatActivity {
     private void openConfig() {
         Intent openConfigIntent = new Intent(this, configActivity.class);
        Bundle configBundle = new Bundle();
-        //configBundle.putString(COMMON.CONFIG_IP_ADDRESS, ipAddress);
+       // configBundle.putString(COMMON.CONFIG_IP_ADDRESS, ipAddress);
        // configBundle.putInt(COMMON.CONFIG_SAMPLE_TIME, sampleTime);
        // configBundle.putInt(COMMON.CONFIG_MAX_SAMPLES, maxSamples);
        openConfigIntent.putExtras(configBundle);
        startActivityForResult(openConfigIntent, COMMON.REQUEST_CODE_CONFIG);
-       startActivity(openConfigIntent);
+       //startActivity(openConfigIntent);
     }
 
     /**

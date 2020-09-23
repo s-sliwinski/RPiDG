@@ -6,7 +6,7 @@ public final class COMMON {
 
     // configuration info: names and default values
     public final static String CONFIG_IP_ADDRESS = "ipAddress";
-    public static String DEFAULT_IP_ADDRESS = "192.168.0.23";
+    public static String DEFAULT_IP_ADDRESS = "192.168.0.17";
 
     public final static String CONFIG_SAMPLE_TIME = "sampleTime";
     public static int DEFAULT_SAMPLE_TIME = 500;
@@ -15,7 +15,7 @@ public final class COMMON {
     public static int DEFAULT_MAX_SAMPLES = 10;
 
     public final static String CONFIG_PORT_NUMBER = "portNumber";
-    static int DEFAULT_PORT_NUMBER = 22;
+    static String DEFAULT_PORT_NUMBER = "80";
 
 
 
@@ -29,4 +29,9 @@ public final class COMMON {
     public final static String FILE_NAME = "chartdata.json";
     public final static String  FILE_MARIO= "mario.json";
     public final static String  FILE_LUIGI= "luigi.json";
+
+    public final static String SERWER_MARIO="mario.php";
+    public final static String SERWER_LUIGI="luigi.php";
+    public final static String SERWER_LED_DISPLAY="led_display.php";
+
 }
