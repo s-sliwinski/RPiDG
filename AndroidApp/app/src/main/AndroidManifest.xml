@@ -17,7 +17,6 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity android:name=".configActivity" />
-        <activity android:name=".settingsActivity" />
         <activity android:name=".measurementsActivity" />
         <activity android:name=".ledMatrixActivity" />
         <activity android:name=".angleMeasurementActivity" />
