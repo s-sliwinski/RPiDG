@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<!-- HTML file head: web page metadata -->
+	<head>
+		<title>HTML/JavaScript/CSS (Boostrap) examples</title>
+		<!-- jQuery -->
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+		
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+		
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+		
+		<!-- Chart.js library -->
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+		
+		<script type="text/javascript" src="RPYY.js"></script> 
+		<link rel="stylesheet" type="text/css" href="styles/datagrabber_example_css.css">
+	</head>
+
+	<!-- HTML file body: web page content -->
+	<body>
+		<h1 class="text-center">Roll</h1>
+		<div id="datagrabber" class="container border border-primary rounded datagrabber">
+			<ul class="nav">
+				<li><button id="start" type="button" class="btn btn-primary menuitem">Start</button></li>
+				<li><button id="stop" type="button" class="btn btn-primary menuitem">Stop</button></li>
+				<li><div class="border border-primary rounded menuitem"><span>Sample time: <span id="sampletime"></span> ms</span></div></li>  
+				<li><div class="border border-primary rounded menuitem"><span>Max. number of samples: <span id="samplenumber"></span></span></div></li>  
+			</ul>
+			<div class="chartcontainer">
+				<canvas id="chart"></canvas>
+			</div>
+		</div>
+		<h1 class="text-center">Pitch</h1>
+		<div id="datagrabber" class="container border border-primary rounded datagrabber">
+			<ul class="nav">
+				<li><button id="start2" type="button" class="btn btn-primary menuitem">Start</button></li>
+				<li><button id="stop2" type="button" class="btn btn-primary menuitem">Stop</button></li>
+				<li><div class="border border-primary rounded menuitem"><span>Sample time: <span id="sampletime2"></span> ms</span></div></li>  
+				<li><div class="border border-primary rounded menuitem"><span>Max. number of samples: <span id="samplenumber2"></span></span></div></li>  
+			</ul>
+			<div class="chartcontainer">
+				<canvas id="chart2"></canvas>
+			</div>
+		</div>
+		<h1 class="text-center">Yaw</h1>
+		<div id="datagrabber" class="container border border-primary rounded datagrabber">
+			<ul class="nav">
+				<li><button id="start3" type="button" class="btn btn-primary menuitem">Start</button></li>
+				<li><button id="stop3" type="button" class="btn btn-primary menuitem">Stop</button></li>
+				<li><div class="border border-primary rounded menuitem"><span>Sample time: <span id="sampletime2"></span> ms</span></div></li>  
+				<li><div class="border border-primary rounded menuitem"><span>Max. number of samples: <span id="samplenumber2"></span></span></div></li>  
+			</ul>
+			<div class="chartcontainer">
+				<canvas id="chart3"></canvas>
+			</div>
+		</div>
+	</body>
+
+</html>
