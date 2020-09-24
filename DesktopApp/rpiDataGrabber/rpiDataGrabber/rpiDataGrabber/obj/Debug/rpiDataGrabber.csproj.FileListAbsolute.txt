@@ -34,7 +34,6 @@ C:\Users\Klient\Documents\GitHub\RPiDG\DesktopApp\rpiDataGrabber\rpiDataGrabber\
 C:\Users\Klient\Documents\GitHub\RPiDG\DesktopApp\rpiDataGrabber\rpiDataGrabber\rpiDataGrabber\obj\Debug\rpiDataGrabber.csprojAssemblyReference.cache
 C:\Users\Klient\Documents\GitHub\RPiDG\DesktopApp\rpiDataGrabber\rpiDataGrabber\rpiDataGrabber\obj\Debug\rpiDataGrabber.Form1.resources
 C:\Users\Klient\Documents\GitHub\RPiDG\DesktopApp\rpiDataGrabber\rpiDataGrabber\rpiDataGrabber\obj\Debug\rpiDataGrabber.Properties.Resources.resources
-C:\Users\Klient\Documents\GitHub\RPiDG\DesktopApp\rpiDataGrabber\rpiDataGrabber\rpiDataGrabber\obj\Debug\rpiDataGrabber.configData.resources
 C:\Users\Klient\Documents\GitHub\RPiDG\DesktopApp\rpiDataGrabber\rpiDataGrabber\rpiDataGrabber\obj\Debug\rpiDataGrabber.UserControl2.resources
 C:\Users\Klient\Documents\GitHub\RPiDG\DesktopApp\rpiDataGrabber\rpiDataGrabber\rpiDataGrabber\obj\Debug\rpiDataGrabber.UserControl3.resources
 C:\Users\Klient\Documents\GitHub\RPiDG\DesktopApp\rpiDataGrabber\rpiDataGrabber\rpiDataGrabber\obj\Debug\rpiDataGrabber.csproj.GenerateResource.cache
@@ -45,3 +44,5 @@ C:\Users\Klient\Documents\GitHub\RPiDG\DesktopApp\rpiDataGrabber\rpiDataGrabber\
 C:\Users\Klient\Documents\GitHub\RPiDG\DesktopApp\rpiDataGrabber\rpiDataGrabber\rpiDataGrabber\obj\Debug\rpiDataGrabber.dataTable.resources
 C:\Users\Klient\Documents\GitHub\RPiDG\DesktopApp\rpiDataGrabber\rpiDataGrabber\rpiDataGrabber\obj\Debug\rpiDataGrabber.rpyTimeline.resources
 C:\Users\Klient\Documents\GitHub\RPiDG\DesktopApp\rpiDataGrabber\rpiDataGrabber\rpiDataGrabber\obj\Debug\rpiDataGrabber.joystick.resources
+C:\Users\Klient\Documents\GitHub\RPiDG\DesktopApp\rpiDataGrabber\rpiDataGrabber\rpiDataGrabber\obj\Debug\rpiDataGrabber.dynamicDataTable.resources
+C:\Users\Klient\Documents\GitHub\RPiDG\DesktopApp\rpiDataGrabber\rpiDataGrabber\rpiDataGrabber\obj\Debug\rpiDataGrabber.configControl.resources

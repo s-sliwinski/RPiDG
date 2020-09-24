@@ -27,7 +27,7 @@ namespace rpiDataGrabber
         private IoTServer Server;
         const string filePath = @"C:\Users\Klient\Documents\GitHub\RPiDG\DesktopApp\rpiDataGrabber\rpiDataGrabber\config.json";
         configData deserialized = JsonConvert.DeserializeObject<configData>(File.ReadAllText(filePath));
-        int yMax = 10, xMax = 10;
+        int xMax = 10;
         #endregion
 
         public joystick()
@@ -52,8 +52,6 @@ namespace rpiDataGrabber
             DataPlotModel.Axes.Add(new LinearAxis()
             {
                 Position = AxisPosition.Left,
-               /* Minimum = -yMax,
-                Maximum = yMax,*/
                 Key = "Vertical",
                 Title = "Y"
             });
@@ -67,18 +65,18 @@ namespace rpiDataGrabber
             RequestTimer.Elapsed += new ElapsedEventHandler(RequestTimerElapsed);
             RequestTimer.Enabled = true;
             DataPlotModel.Series.Clear();
-            DataPlotModel.Series.Add(new LineSeries() { Title = "Position", Color = OxyColor.Parse("#7386D5") });
+            DataPlotModel.Series.Add(new LineSeries() { Title = "Position", Color = OxyColor.Parse("#30323C"),  MarkerFill = OxyColor.Parse("#7386D5"), MarkerType = OxyPlot.MarkerType.Circle });
             DataPlotModel.ResetAllAxes();
         }
 
         private void UpdatePlot(int x, int y)
         {
-
+            
             LineSeries lineSeries = DataPlotModel.Series[0] as LineSeries;
             //punkt
             lineSeries.Points.Add(new DataPoint(x,y));
-
-           // lineSeries.Points.RemoveAt(0);
+            if(lineSeries.Points.Count()>1)
+                lineSeries.Points.RemoveAt(0);
 
             //osie
             if (x >= xMax)
@@ -92,20 +90,7 @@ namespace rpiDataGrabber
                 xMax = -x;
                 DataPlotModel.Axes[0].Minimum = -xMax - 1;
                 DataPlotModel.Axes[0].Maximum = -xMax + 21;
-            }/*
-            if (y >= yMax)
-            {
-                yMax = y;
-                DataPlotModel.Axes[0].Minimum = yMax - 21;
-                DataPlotModel.Axes[0].Maximum = yMax + 1;
             }
-            if (y <= -yMax)
-            {
-                yMax = -y;
-                DataPlotModel.Axes[0].Minimum = -yMax - 1;
-                DataPlotModel.Axes[0].Maximum = -yMax + 21;
-            }
-            */
             DataPlotModel.InvalidatePlot(true);
         }
 

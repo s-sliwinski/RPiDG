@@ -1,7 +1,3 @@
-View-Model-View
-
-ADD ROUND and DECIMAL PLACES
-
 Menu Background: #7386D5
 Background: #30323C
 Text:  #E3B2B2

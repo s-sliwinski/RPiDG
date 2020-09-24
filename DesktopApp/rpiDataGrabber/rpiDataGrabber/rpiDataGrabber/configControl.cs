@@ -12,22 +12,13 @@ using System.IO;
 
 namespace rpiDataGrabber
 {
-    //struktura danych json
-    public class configData
-    {
-        public string ip { get; set; }
-        public string port { get; set; }
-        public int sampleTime { get; set; }
-        public int maxSamples { get; set; }
-    }
-
-
-    public partial class UserControl1 : UserControl
+    
+    public partial class configControl : UserControl
     {
         //sciezka do pliku config
         const string filePath = @"C:\Users\Klient\Documents\GitHub\RPiDG\DesktopApp\rpiDataGrabber\rpiDataGrabber\config.json";
 
-        
+
         //funkcja do kodowania json 
         public static void Serialize(object obj)
         {
@@ -39,28 +30,28 @@ namespace rpiDataGrabber
                 serializer.Serialize(writer, obj);
             }
         }
+        
 
-     
-        public UserControl1()
+        public configControl()
         {
             InitializeComponent();
-            //przypisanie textBoxom poczatkowych wartosci
             configData deserialized = JsonConvert.DeserializeObject<configData>(File.ReadAllText(filePath));
-            textBox2.Text = deserialized.ip;
-            textBox3.Text = deserialized.port;
-            textBox4.Text = deserialized.sampleTime.ToString();
-            textBox1.Text = deserialized.maxSamples.ToString();
-
+            textBox1.Text = deserialized.ip;
+            textBox2.Text = deserialized.port;
+            textBox3.Text = deserialized.sampleTime.ToString();
+            textBox4.Text = deserialized.maxSamples.ToString();
+            textBox5.Text = deserialized.decimalPlaces.ToString();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             var conf = new configData
             {
-                ip = textBox2.Text,
-                port = textBox3.Text,
-                sampleTime = Int16.Parse(textBox4.Text),
-                maxSamples = Int16.Parse(textBox1.Text)
+                ip = textBox1.Text,
+                port = textBox2.Text,
+                sampleTime = Int16.Parse(textBox3.Text),
+                maxSamples = Int16.Parse(textBox4.Text),
+                decimalPlaces = Int16.Parse(textBox5.Text)
             };
             Serialize(conf);
 
@@ -71,10 +62,6 @@ namespace rpiDataGrabber
 
             // Wyswietl MessageBox.
             MessageBox.Show(message, caption, buttons);
-
         }
-            
-        
     }
-    
 }

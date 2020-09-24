@@ -50,7 +50,7 @@ namespace rpiDataGrabber
             {
                 ctrl.Dispose();
             }
-            panel1.Controls.Add(new UserControl1());
+            panel1.Controls.Add(new configControl());
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -68,7 +68,7 @@ namespace rpiDataGrabber
             {
                 ctrl.Dispose();
             }
-            panel1.Controls.Add(new dataTable());
+            panel1.Controls.Add(new dynamicDataTable());
         }
 
         private void button6_Click(object sender, EventArgs e)
