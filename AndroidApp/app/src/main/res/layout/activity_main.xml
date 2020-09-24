@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#30323C"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="50dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/measurementBtn"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="400dp"
+            android:layout_height="60dp"
+            android:backgroundTint="#7386D5"
+            android:gravity="left"
+            android:onClick="btns_onClick"
+            android:text="Measurements"
+            android:textColor="#E3B2B2" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.5" />
+
+        <Button
+            android:id="@+id/chartsBtn"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="400dp"
+            android:layout_height="60dp"
+            android:backgroundTint="#7386D5"
+            android:gravity="left"
+            android:onClick="btns_onClick"
+            android:text="Charts"
+            android:textColor="#E3B2B2" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.5" />
+
+        <Button
+            android:id="@+id/angleMeasurementBtn"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="400dp"
+            android:layout_height="60dp"
+            android:backgroundTint="#7386D5"
+            android:gravity="left"
+            android:onClick="btns_onClick"
+            android:text="Angle Measurements"
+            android:textColor="#E3B2B2" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.5" />
+
+        <Button
+            android:id="@+id/joystickBtn"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="400dp"
+            android:layout_height="60dp"
+            android:backgroundTint="#7386D5"
+            android:gravity="left"
+            android:onClick="btns_onClick"
+            android:text="Joystick"
+            android:textColor="#E3B2B2" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.5" />
+
+        <Button
+            android:id="@+id/ledMatrixBtn"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="400dp"
+            android:layout_height="60dp"
+            android:backgroundTint="#7386D5"
+            android:gravity="left"
+            android:onClick="btns_onClick"
+            android:text="LED matrix"
+            android:textColor="#E3B2B2" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/settingsBtn"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#7386D5"
+            android:gravity="left"
+            android:onClick="btns_onClick"
+            android:text="settings"
+            android:textColor="#E3B2B2" />
+
+        <Button
+            android:id="@+id/authorsBtn"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#7386D5"
+            android:gravity="left"
+            android:onClick="btns_onClick"
+            android:text="authors"
+            android:textColor="#E3B2B2" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
