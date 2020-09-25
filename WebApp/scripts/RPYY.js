@@ -1,9 +1,9 @@
 
-const sampleTimeSec = 0.1; 					///< sample time in sec
-const sampleTimeMsec = 1000*sampleTimeSec;	///< sample time in msec
-const maxSamplesNumber = 100;				///< maximum number of samples
+var sampleTimeSec = 0.1; 					///< sample time in sec
+var sampleTimeMsec = 1000*sampleTimeSec;	///< sample time in msec
+var maxSamplesNumber = 100;				///< maximum number of samples
 
-var lastTimeStamp; ///< most recent time stamp 
+var lastTimeStamp; ///< most recent time stamp
 var xdata; ///< x-axis labels array: time stamps
 var ydata; ///< y-axis data array: random value
 
@@ -26,12 +26,35 @@ var timer;
 var timer2;
 var timer3;
 
-const  url ='scripts/chartdata.json'; ///< server app with JSON API
-
+const  url ='http://192.168.1.15/ServerScripts/chartdata.json'; ///< server app with JSON API
+const curl ='scripts/config.json';
 /**
 * @brief Add new value to next data point.
-* @param y New y-axis value 
+* @param y New y-axis value
 */
+getConfig()
+function getConfig(){
+	/// Send request
+	$.ajax(
+	{
+		url: curl,
+		type: 'GET',
+		dataType: 'json',
+		/// success callback
+		success: function(responseJSON, status, xhr) {
+			console.log(JSON.stringify(responseJSON));
+			ip = responseJSON.ip;
+			port = responseJSON.port;
+			maxSamplesNumber = responseJSON.maxsamples;
+			sampleTimeSec = responseJSON.stime;
+			console.log(ip,port,maxSamplesNumber,sampleTimeSec);
+
+		},
+		/// error callback
+		error: function(response){
+		alert(response)}
+	});
+}
 function addData(y){
 	if(ydata.length > maxSamplesNumber)
 	{
@@ -107,7 +130,7 @@ function ajaxJSON() {
 		type: 'GET', dataType: 'json',
 		success: function(responseJSON, status, xhr) {
 			addData(+responseJSON.roll);
-		
+
 		}
 	});
 }
@@ -116,7 +139,7 @@ function ajaxJSON2() {
 		type: 'GET', dataType: 'json',
 		success: function(responseJSON, status, xhr) {
 			addData2(+responseJSON.pitch);
-		
+
 		}
 	});
 }
@@ -125,7 +148,7 @@ function ajaxJSON3() {
 		type: 'GET', dataType: 'json',
 		success: function(responseJSON, status, xhr) {
 			addData3(+responseJSON.yaw);
-		
+
 		}
 	});
 }
@@ -135,15 +158,15 @@ function ajaxJSON3() {
 function chartInit()
 {
 	// array with consecutive integers: <0, maxSamplesNumber-1>
-	xdata = [...Array(maxSamplesNumber).keys()]; 
-	// scaling all values ​​times the sample time 
+	xdata = [...Array(maxSamplesNumber).keys()];
+	// scaling all values ​​times the sample time
 	xdata.forEach(function(p, i) {this[i] = (this[i]*sampleTimeSec).toFixed(1);}, xdata);
 
 	// last value of 'xdata'
-	lastTimeStamp = +xdata[xdata.length-1]; 
+	lastTimeStamp = +xdata[xdata.length-1];
 
 	// empty array
-	ydata = []; 
+	ydata = [];
 
 	// get chart context from 'canvas' element
 	chartContext = $("#chart")[0].getContext('2d');
@@ -186,17 +209,17 @@ function chartInit()
 			}
 		}
 	});
-	
+
 	ydata = chart.data.datasets[0].data;
 	xdata = chart.data.labels;
 }
 
 function chartInit2()
 {
-	xdata2 = [...Array(maxSamplesNumber).keys()]; 
+	xdata2 = [...Array(maxSamplesNumber).keys()];
 	xdata2.forEach(function(p, i) {this[i] = (this[i]*sampleTimeSec).toFixed(1);}, xdata2);
-	lastTimeStamp = +xdata2[xdata2.length-1]; 
-	ydata2 = []; 
+	lastTimeStamp = +xdata2[xdata2.length-1];
+	ydata2 = [];
 	chartContext2 = $("#chart2")[0].getContext('2d');
 	chart2 = new Chart(chartContext2, {
 		type: 'line',
@@ -231,17 +254,17 @@ function chartInit2()
 			}
 		}
 	});
-	
+
 	ydata2 = chart2.data.datasets[0].data;
 	xdata2 = chart2.data.labels;
 }
 
 function chartInit3()
 {
-	xdata3 = [...Array(maxSamplesNumber).keys()]; 
+	xdata3 = [...Array(maxSamplesNumber).keys()];
 	xdata3.forEach(function(p, i) {this[i] = (this[i]*sampleTimeSec).toFixed(1);}, xdata3);
-	lastTimeStamp = +xdata3[xdata3.length-1]; 
-	ydata3 = []; 
+	lastTimeStamp = +xdata3[xdata3.length-1];
+	ydata3 = [];
 	chartContext3 = $("#chart3")[0].getContext('2d');
 	chart3 = new Chart(chartContext3, {
 		type: 'line',
@@ -276,25 +299,26 @@ function chartInit3()
 			}
 		}
 	});
-	
+
 	ydata3 = chart3.data.datasets[0].data;
 	xdata3 = chart3.data.labels;
 }
 
-$(document).ready(() => { 
+$(document).ready(() => {
+
 	chartInit();
 	chartInit2();
 	chartInit3();
-	
+
 	$("#start").click(startTimer);
 	$("#stop").click(stopTimer);
-	
+
 	$("#start2").click(startTimer2);
 	$("#stop2").click(stopTimer2);
-	
+
 	$("#start3").click(startTimer3);
 	$("#stop3").click(stopTimer3);
-	
+
 	$("#sampletime").text(sampleTimeMsec.toString());
 	$("#samplenumber").text(maxSamplesNumber.toString());
 	$("#sampletime2").text(sampleTimeMsec.toString());

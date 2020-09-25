@@ -1,12 +1,27 @@
 #!/usr/bin/python3
 import cgi, cgitb
 import json
+import sys
+import os
 
-print("Content-Type: application/json\r\n\r\n")
 
-storage = cgi.FieldStorage()
-jsonStr = storage.getvalue('jsonStr')
+content_len = int(os.environ["CONTENT_LENGTH"])
+req_body = sys.stdin.read()
+myjson = json.loads(req_body)
 
-f = open("config-data.json", "w")
-f.write(str(jsonStr))
-f.close()
+
+#data modification
+myjson["ip"] = "do sth"
+
+
+print('Content-Type: application/json\r\n\r\n')
+
+open with("config.json", "w") as file:
+	file.write(json.dumps(myjson))
+print(json.dumps(myjson))
+
+
+
+
+ 
+

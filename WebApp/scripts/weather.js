@@ -1,20 +1,8 @@
 
 <!-- read configure data-->
-var ip;
-var port;
-var sampleTimeSec;
-var maxSamplesNumber;				///< maximum number of samples
-
-$.getJSON( "configData.json", function( data ) {
-  $.each( data, function( key, val ) {
-    	if ( key == "ip")  ip = val;
-	if ( key == "port")  port = val;
-	if ( key == "sampleTime")  sampleTimeSec = val;
-	if ( key == "maxSamples")  maxSamplesNumber = val;
-  });
-});
-
+var sampleTimeSec = 0.1; 					///< sample time in sec
 var sampleTimeMsec = 1000*sampleTimeSec;	///< sample time in msec
+var maxSamplesNumber = 100;				///< maximum number of samples	///< sample time in msec
 
 var lastTimeStamp; ///< most recent time stamp 
 var xdata; ///< x-axis labels array: time stamps
@@ -39,12 +27,34 @@ var timer;
 var timer2;
 var timer3;
 
-const  url ='chartdata.json'; ///< server app with JSON API   
-
+const  url ='http://192.168.1.15/ServerScripts/chartdata.json'; ///< server app with JSON API   
+const curl ='scripts/config.json';
 /**
 * @brief Add new value to next data point.
 * @param y New y-axis value 
 */
+function getConfig(){
+	/// Send request
+	$.ajax( 
+	{	
+		url: curl,
+		type: 'GET',
+		dataType: 'json',
+		/// success callback
+		success: function(responseJSON, status, xhr) {	
+			console.log(JSON.stringify(responseJSON));
+			ip = responseJSON.ip;
+			port = responseJSON.port;
+			maxSamplesNumber = responseJSON.maxsamples;
+			sampleTimeSec = responseJSON.stime;
+			console.log(ip,port,maxSamplesNumber,sampleTimeSec);
+			
+		},
+		/// error callback
+		error: function(response){
+		alert(response)}
+	});
+}
 function addData(y){
 	if(ydata.length > maxSamplesNumber)
 	{
@@ -143,7 +153,7 @@ $.getJSON( url, function( data ) {
   $.each( data, function( key, val ) {
     	if ( key == "humidity")  {
 			var temporary3 = val;
-			addData2(temporary3);
+			addData3(temporary3);
 						  }
 	  });
 });
@@ -301,6 +311,10 @@ function chartInit3()
 }
 
 $(document).ready(() => { 
+	
+	
+	getConfig();
+
 	chartInit();
 	chartInit2();
 	chartInit3();
