@@ -224,7 +224,7 @@ namespace rpiDataGrabber
             }
             if (responseJson.temperature == null)
             { 
-                //labelFlag = ?
+                //doNothing
             }
 
             //humidity
@@ -247,7 +247,7 @@ namespace rpiDataGrabber
             }
             if (responseJson.humidity == null)
             {
-                //labelFlag = ?
+                //doNothing
             }
 
             //pressure
@@ -270,7 +270,7 @@ namespace rpiDataGrabber
             }
             if (responseJson.pressure == null)
             {
-                //labelFlag = ?
+                //doNothing
             }
 
             //roll
@@ -293,7 +293,7 @@ namespace rpiDataGrabber
             }
             if (responseJson.roll == null)
             {
-                //labelFlag = ?
+                //doNothing
             }
 
             //pitch
@@ -316,7 +316,7 @@ namespace rpiDataGrabber
             }
             if (responseJson.pitch == null)
             {
-                //labelFlag = ?
+                //doNothing
             }
 
             //yaw
@@ -339,7 +339,7 @@ namespace rpiDataGrabber
             }
             if (responseJson.yaw == null)
             {
-                //labelFlag = ?
+                //doNothing
             }
 
             //x
@@ -354,7 +354,7 @@ namespace rpiDataGrabber
             }
             if (responseJson.x == null)
             {
-                //labelFlag = ?
+                //doNothing
             }
 
             //y
@@ -369,7 +369,7 @@ namespace rpiDataGrabber
             }
             if (responseJson.y == null)
             {
-                //labelFlag = ?
+                //doNothing
             }
 
             //mid
@@ -384,10 +384,10 @@ namespace rpiDataGrabber
             }
             if (responseJson.mid == null)
             {
-                //labelFlag = ?
+                //doNothing
             }
             #endregion
-            
+
         }
 
         private void RequestTimerElapsed(object sender, ElapsedEventArgs e)
